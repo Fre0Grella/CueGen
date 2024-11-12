@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CueGenGUI.MainPage">
+
+    <Grid RowDefinitions="Auto, Auto"
+          Padding="10"
+          ColumnSpacing="10"
+          RowSpacing="10">
+
+        <CollectionView Grid.Row="1" SelectedItem="{Binding SelectedListItem}" SelectionMode="Multiple"
+                        x:Name="MyCollectionViews" ItemsSource="{Binding OptionItems}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5"></GridItemsLayout>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*"
+                          VerticalOptions="CenterAndExpand">
+
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label VerticalOptions="CenterAndExpand" Text="{Binding Name}" TextColor="#0D1F22"/>
+                            <Label VerticalOptions="CenterAndExpand" Text="{Binding address}" TextColor="#0D1F22"/>
+                        </VerticalStackLayout>
+                        <Button Grid.Column="1" VerticalOptions="CenterAndExpand" Background="#3891A6"
+                                TextColor="#F8A030"
+                                Text="Click"
+                                Command="{Binding.Path=BindingContext.ButtonClickedCommand,Source={x:Reference MyCollectionViews}}"
+                                CommandParameter="{Binding .}"/>
+
+                    </Grid>
+                          
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+    
+    
+
+
+</ContentPage>

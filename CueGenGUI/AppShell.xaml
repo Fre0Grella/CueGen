@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CueGenGUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CueGenGUI"
+    Shell.FlyoutBehavior="Disabled"
+    Title="CueGen">
+
+    
+        <ShellContent
+        Title="CueGen"
+        Icon="appicon.svg"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    
+    
+</Shell>
