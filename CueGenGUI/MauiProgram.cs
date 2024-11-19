@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using CueGenGUI.View;
+using CommunityToolkit.Maui;
 
 namespace CueGenGUI
 {
@@ -9,6 +11,7 @@ namespace CueGenGUI
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -18,7 +21,7 @@ namespace CueGenGUI
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<MainPage>();
             return builder.Build();
         }
     }
