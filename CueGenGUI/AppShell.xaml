@@ -9,6 +9,7 @@
 
     
         <ShellContent
+        
         Title="CueGen"
         Icon="appicon.svg"
         ContentTemplate="{DataTemplate view:MainPage}"

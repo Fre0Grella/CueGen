@@ -12,8 +12,8 @@ namespace CueGenGUI.Model
         public string name { get; set; }
         public string description { get; set; }
         public bool isChecked { get; set; }
+
         List<string>? options;
-        public GenOption() { }
         public GenOption(string name, string description, bool active, List<string>? options)
         {
             this.name = name;

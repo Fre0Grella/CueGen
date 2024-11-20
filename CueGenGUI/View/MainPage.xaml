@@ -9,70 +9,66 @@
     <ContentPage.BindingContext>
         <viewmodel:GenOptionSetViewModel/>
     </ContentPage.BindingContext>
-
-    <CollectionView ItemsSource="{Binding OptionSet}" BackgroundColor="#EFF8E2">
-       <!-- <CollectionView.ItemsSource>
-            <x:Array Type="{x:Type model:GenOption}">
-                <model:GenOption
-                    name="Phrase"
-                    description="generate phrase cue"
-                    active="false"
-                     />
-                <model:GenOption
-                    name="Phrase"
-                    description="generate phrase cue"
-                    active="false"
-                />
-                <model:GenOption
-                    name="Phrase"
-                    description="generate phrase cue"
-                    active="false"
-                />
-            </x:Array>
-        </CollectionView.ItemsSource>  -->
+    <VerticalStackLayout>
+        
+    <CollectionView ItemsSource="{Binding OptionSet}" >
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical"
+                        Span="2" />
+        </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:GenOption">
-
-                <StackLayout Padding="10" Spacing="5">
-                    <!-- Nome e Checkbox sulla prima riga -->
-                    <Grid ColumnDefinitions="250, Auto">
-                        <Label Text="{Binding name}" 
-                                   VerticalOptions="Center" 
-                                   FontSize="18" 
-                                   Grid.Column="0" 
-                                   TextColor="Orange"/>
-                        <CheckBox IsChecked="{Binding isChecked}" 
-                                      VerticalOptions="Center" 
-                                      Grid.Column="1"
-                                      Color="Red"/>
-                    </Grid>
+                 
 
                     <!-- Espandibile per mostrare la descrizione -->
-                 <!--   <toolkit:Expander>
+                <toolkit:Expander x:Name="info">
                         <toolkit:Expander.Header>
-                            <Grid ColumnDefinitions="*, Auto">
-                                <Label Text="Dettagli" 
-                                        FontSize="14" 
-                   TextColor="Gray" 
-                   VerticalOptions="Center" 
-                   Grid.Column="0" />
-                                <Image Source="arrow_down.png" 
+                        <!-- Nome e Checkbox sulla prima riga -->
+                        <Grid ColumnDefinitions="150,Auto, Auto">
+                            <Label Text="{Binding name}" 
+                                    VerticalOptions="Center" 
+                                    FontSize="18" 
+                                    Grid.Column="0" 
+                                    TextColor="Orange"/>
+                            <Image Grid.Column="1" HeightRequest="30" WidthRequest="30"  Source="expand_down_arrow.png" HorizontalOptions="Start">
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference info}, Path=IsExpanded}"
+                                         Value="True">
+                                        <Setter Property="Rotation"
+                                        Value="180" />
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+                            <CheckBox IsChecked="{Binding isChecked}" 
+                      VerticalOptions="Center" 
+                      Grid.Column="2"
+                      Color="Red"/>
+                            
+                                
+                        </Grid>
+                        
+                           
+                            <!-- <Image Source="arrow_down.png" 
                    WidthRequest="20" 
                    HeightRequest="20" 
                    VerticalOptions="Center" 
-                   Grid.Column="1" />
-                            </Grid>
+                   Grid.Column="1" /> -->
+
                         </toolkit:Expander.Header>
                         <toolkit:Expander.Content>
-                            <Label Text="{Binding description}" 
-               FontSize="14" 
-               TextColor="DarkGray" 
-               Margin="10,0,0,0" />
-                        </toolkit:Expander.Content>
-                    </toolkit:Expander> -->
+                            <StackLayout Padding="10">
+                                <Label  Text="{Binding description}" 
+                                    FontSize="14" 
+                                    TextColor="Black"/>
 
-                </StackLayout>
+                            </StackLayout>
+
+                        </toolkit:Expander.Content>
+                    </toolkit:Expander>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    <Button Text="Generate" MaximumWidthRequest="300"></Button>
+    </VerticalStackLayout>
 </ContentPage>

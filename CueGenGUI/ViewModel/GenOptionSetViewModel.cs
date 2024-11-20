@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TagLib.Riff;
 using CueGenGUI.Model;
 using System.Collections.ObjectModel;
+using Mono.Options;
 
 namespace CueGenGUI.ViewModel
 {
@@ -15,18 +16,50 @@ namespace CueGenGUI.ViewModel
     {
         public ObservableCollection<GenOption> OptionSet {  get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+        public OptionSet options { get; set; }
 
         public GenOptionSetViewModel()
         {
+           
             OptionSet = new ObservableCollection<GenOption>
         {
-            new GenOption { name = "Phrase", description="make cue in phrase", isChecked = false },
-            new GenOption { name = "Attend meeting", description="Lorem ipsum", isChecked = true },
-            new GenOption { name = "Exercise", description="zio peppino", isChecked = false }
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption(),
+            new GenOption()
+
+            
         };
         }
+        
 
-        protected void OnPropertyChanged(string propertyName)
+protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
