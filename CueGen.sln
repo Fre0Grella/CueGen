@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CueGen.Test", "CueGen.Test\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CueGen.Console", "CueGen.Console\CueGen.Console.csproj", "{5691C26D-9CCA-4DF7-8486-995A37E00247}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CueGenGUI", "CueGenGUI\CueGenGUI.csproj", "{A46679A7-DBCA-4346-8101-488A0911BE93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CueGen.Gui", "CueGenGUI\CueGen.Gui.csproj", "{A46679A7-DBCA-4346-8101-488A0911BE93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CueGen.Core", "CueGen.Core\CueGen.Core.csproj", "{409FCF3C-5286-47A1-AB4C-A1659EE16CB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{A46679A7-DBCA-4346-8101-488A0911BE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A46679A7-DBCA-4346-8101-488A0911BE93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A46679A7-DBCA-4346-8101-488A0911BE93}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{409FCF3C-5286-47A1-AB4C-A1659EE16CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409FCF3C-5286-47A1-AB4C-A1659EE16CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409FCF3C-5286-47A1-AB4C-A1659EE16CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409FCF3C-5286-47A1-AB4C-A1659EE16CB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

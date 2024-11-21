@@ -71,6 +71,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\CueGen.Core\CueGen.Core.csproj" />
 	  <ProjectReference Include="..\CueGen\CueGen.csproj">
 	    <TreatAsUsed>true</TreatAsUsed>
 	  </ProjectReference>

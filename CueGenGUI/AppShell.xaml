@@ -7,13 +7,13 @@
     Shell.FlyoutBehavior="Disabled"
     Title="CueGen">
 
-    
-        <ShellContent
+
+    <ShellContent
         
         Title="CueGen"
         Icon="appicon.svg"
         ContentTemplate="{DataTemplate view:MainPage}"
         Route="MainPage" />
-    
-    
+
+
 </Shell>

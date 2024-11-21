@@ -9,27 +9,30 @@
     <ContentPage.BindingContext>
         <viewmodel:GenOptionSetViewModel/>
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
+    <ScrollView>
         
-    <CollectionView ItemsSource="{Binding OptionSet}" >
+    <VerticalStackLayout BackgroundColor="#e2f4f8">
+
+        <CollectionView x:Name="OptionList" ItemsSource="{Binding OptionSet}" Margin="5" >
         <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical"
-                        Span="2" />
+            <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="10"/>
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:GenOption">
                  
 
                     <!-- Espandibile per mostrare la descrizione -->
-                <toolkit:Expander x:Name="info">
+                <toolkit:Expander x:Name="info" IsExpanded="{Binding isExpanded}" >
                         <toolkit:Expander.Header>
+                            <Frame BackgroundColor="#e2f4f8" CornerRadius="0" WidthRequest="220">
                         <!-- Nome e Checkbox sulla prima riga -->
-                        <Grid ColumnDefinitions="150,Auto, Auto">
+                        <Grid ColumnDefinitions="150,30, 30"  MinimumHeightRequest="25" WidthRequest="220">
                             <Label Text="{Binding name}" 
                                     VerticalOptions="Center" 
-                                    FontSize="18" 
+                                   Padding="5"
+                                    FontSize="16" 
                                     Grid.Column="0" 
-                                    TextColor="Orange"/>
+                                    TextColor="#212121"/>
                             <Image Grid.Column="1" HeightRequest="30" WidthRequest="30"  Source="expand_down_arrow.png" HorizontalOptions="Start">
                                 <Image.Triggers>
                                     <DataTrigger TargetType="Image"
@@ -43,32 +46,37 @@
                             <CheckBox IsChecked="{Binding isChecked}" 
                       VerticalOptions="Center" 
                       Grid.Column="2"
-                      Color="Red"/>
+                      Color="#F8A030"
+                      />
                             
                                 
                         </Grid>
                         
-                           
-                            <!-- <Image Source="arrow_down.png" 
-                   WidthRequest="20" 
-                   HeightRequest="20" 
-                   VerticalOptions="Center" 
-                   Grid.Column="1" /> -->
-
+                            </Frame>
                         </toolkit:Expander.Header>
                         <toolkit:Expander.Content>
-                            <StackLayout Padding="10">
+                            <Frame BackgroundColor="#cadade" CornerRadius="0" WidthRequest="220">
+                                
+                            <StackLayout WidthRequest="210" MinimumHeightRequest="50"  >
                                 <Label  Text="{Binding description}" 
-                                    FontSize="14" 
-                                    TextColor="Black"/>
+                                    FontSize="12" 
+                                    TextColor="Black"
+                                    LineBreakMode="WordWrap"
+                                    HorizontalOptions="Start"
+                                    
+                                     />
 
                             </StackLayout>
+                            </Frame>
 
                         </toolkit:Expander.Content>
                     </toolkit:Expander>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
-    <Button Text="Generate" MaximumWidthRequest="300"></Button>
+        <Button Text="Generate" FontSize="21" FontAttributes="Bold" MaximumWidthRequest="300" BorderColor="#2c7587" BorderWidth="2" Margin="20">
+                
+            </Button>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

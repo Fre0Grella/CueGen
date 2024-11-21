@@ -13,13 +13,17 @@ using System.Text;
 
 namespace CueGen.Console
 {
-    class Program
+    public class Program
     {
         static readonly Logger Log = LogManager.GetCurrentClassLogger();
         readonly Config Config = new();
         bool Error = false;
         bool Backup = true;
         bool ReportProgress = true;
+
+        public Program()
+        {
+        }
 
         static int Main(string[] args)
         {
